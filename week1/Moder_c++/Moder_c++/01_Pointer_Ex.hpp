@@ -16,13 +16,13 @@ namespace pointer
 	/*                                예제 1                               */
 	/***********************************************************************/
 	namespace ex1
-	{		
+	{
 		void Point_Ex_01()
 		{
 			int a = 10;
 			cout << "a : " << a << endl;
 
-			int *pa = &a;
+			int* pa = &a;
 			cout << "pa : " << pa << endl;
 			cout << "*pa : " << *pa << endl;
 
@@ -42,7 +42,7 @@ namespace pointer
 	/*                                예제 2                               */
 	/***********************************************************************/
 	namespace ex2
-	{		
+	{
 		void Point_Ex_02_Swap(int a, int b)
 		{
 			int temp = a;
@@ -50,7 +50,7 @@ namespace pointer
 			b = temp;
 		}
 
-		void Point_Ex_02_Ref_Swap(int *a, int *b)
+		void Point_Ex_02_Ref_Swap(int* a, int* b)
 		{
 			int temp = *a;
 			*a = *b;
@@ -91,7 +91,7 @@ namespace pointer
 
 			const int VectorSize() { return intVec.size(); }
 
-			
+
 		};
 
 		void Do_Something(foo f)
@@ -100,7 +100,7 @@ namespace pointer
 			f.PushValue(a);
 		}
 
-		void Do_Something_ref(foo *f)
+		void Do_Something_ref(foo* f)
 		{
 			int a = 10;
 			f->PushValue(a);
@@ -123,20 +123,20 @@ namespace pointer
 	/***********************************************************************/
 	namespace ex4
 	{
-		void Change(void *pData, int type)
+		void Change(void* pData, int type)
 		{
 			switch (type)
 			{
 			case 0: // int
 			{
-				int *pval = (int*)pData;
+				int* pval = (int*)pData;
 				cout << "Int Type - " << *pval << endl;
 				break;
 			}
 
 			case 1: // double
 			{
-				double *pval = (double*)pData;
+				double* pval = (double*)pData;
 				cout << "double Type - " << *pval << endl;
 				break;
 			}
@@ -185,7 +185,7 @@ namespace pointer
 			else
 				return minus;
 		}
-		
+
 		typedef int(*FP)(int, int);
 
 		FP GetOperator2(int mode)
@@ -202,8 +202,8 @@ namespace pointer
 
 			int(*fp)(int, int);
 			fp = add;
-							
-			cout << "using add Function - " << a << " + "<< b << " = " << add(a, b) << endl;
+
+			cout << "using add Function - " << a << " + " << b << " = " << add(a, b) << endl;
 
 			cout << "using Function Point - " << a << " + " << b << " = " << fp(a, b) << endl;
 
@@ -211,14 +211,14 @@ namespace pointer
 
 			cout << "using Minus Function - " << a << " + " << b << " = " << minus(a, b) << endl;
 
-			cout << "using Function Point - " << a << " + " << b << " = " << fp(a, b) << endl;					
+			cout << "using Function Point - " << a << " + " << b << " = " << fp(a, b) << endl;
 
 			cout << "using Returning Function Point - " << a << " + " << b << " = " << GetOperator(0)(a, b) << endl;
 			cout << "using Returning Function Point - " << a << " - " << b << " = " << GetOperator(1)(a, b) << endl;
 
 			cout << "using Returning Function Point2 - " << a << " + " << b << " = " << GetOperator2(0)(a, b) << endl;
 			cout << "using Returning Function Point2 - " << a << " - " << b << " = " << GetOperator2(1)(a, b) << endl;
-			
+
 		}
 	}
 
@@ -249,7 +249,7 @@ namespace pointer
 
 		namespace UI
 		{
-			void Operate(cal *c)
+			void Operate(cal* c)
 			{
 				int mode;
 				while (1)
@@ -271,7 +271,7 @@ namespace pointer
 					}
 				}
 			}
-		}				
+		}
 
 		void Run()
 		{
@@ -296,26 +296,58 @@ namespace pointer
 		/***********************************************************************/
 		/*               하나의 Structure 와 Pointer를 이용하여                */
 		/* int과 double를 모두 처리할수 있는 계산기(더하기, 빼기)를 구현하시오 */
-		/***********************************************************************/		
+		/***********************************************************************/
 
 		struct Calculator
 		{
-			
+			int val1;
+			int val2;
+			(void*)(*fp)(void*, void*, bool, bool);
 		};
 
-		void Test(Calculator *c)
+		void* fp(void* a, void* b, bool integer, bool add)
+		{
+			int result_int;
+			double result_double;
+
+			if (add)
+			{
+				result_int = (*((int*)a) + *((int*)b));
+				result_double = (*((double*)a) + *((double*)b));
+			}
+			else
+			{
+				result_int = (*((int*)a) - *((int*)b));
+				result_double = (*((double*)a) - *((double*)b));
+			}
+
+			if (integer)
+				return (void*)& result_int;
+			else
+				return (void*)& result_double;
+		}
+
+		void Test(Calculator* c)
 		{
 			int int_a = 10;
 			int int_b = 8;
 
 			double double_a = 3.14;
 			double double_b = 2.04;
-		
+
+			Calculator cal;
+			cal.fp = fp;
+
+			cout << int_a << " + " << int_b << " = " << cal.fp((void *)&int_a, (void*)&int_b, true, true) << endl;
+			cout << int_a << " - " << int_b << " = " << cal.fp((void*)&int_a, (void*)&int_b, true, false) << endl;
+
+			cout << double_a << " + " << double_b << " = " << cal.fp((void*)& double_a, (void*)& double_b, false, true) << endl;
+			cout << double_a << " - " << double_b << " = " << cal.fp((void*)& double_a, (void*)& double_b, false, false) << endl;
 		}
 
 		void Run()
 		{
-			Calculator cal;			
+			Calculator cal;
 			Test(&cal);
 		}
 	}

@@ -6,32 +6,59 @@ namespace Comment
 	/*                  Doxygen Comment를 작성하여 보시오                  */
 	/***********************************************************************/
 
-	//************************************
-	// Method:    foo
-	// FullName:  Comment::foo
-	
-	// brief:
-	// author: mcb
-	// date: 2019/06/26
-	
-	// Access:    public 
-	// Returns:   void
-	//************************************
-	void foo()
-	{
-
-	}
-
 	/*!
-	 * \class abc
+	 * \class HelloWorldPrinter
 	 *
-	 * \brief
+	 * \brief 
 	 *
-	 * \author mcb
-	 * \date 2019/06/26
+	 * \author jungin500
+	 * \date July 2019
 	 */
-	class abc
+	template<typename T>
+	class HelloWorldPrinter
 	{
+	private:
+		string message;
 
+	public:
+
+		//************************************
+		// Method:    HelloWorldPrinter
+		// FullName:  Comment::HelloWorldPrinter<T>::HelloWorldPrinter
+		// Access:    public 
+		// Returns:   
+		// Qualifier: : message(message)
+		// Parameter: const string & message
+		//************************************
+		HelloWorldPrinter(const string& message) : message(message)
+		{
+
+		}
+
+		//************************************
+		// Method:    ~HelloWorldPrinter
+		// FullName:  Comment::HelloWorldPrinter<T>::~HelloWorldPrinter
+		// Access:    public 
+		// Returns:   
+		// Qualifier:
+		//************************************
+		~HelloWorldPrinter()
+		{
+
+		}
+
+		//************************************
+		// Method:    operator=
+		// FullName:  Comment::HelloWorldPrinter<T>::operator=
+		// Access:    public 
+		// Returns:   Comment::HelloWorldPrinter&
+		// Qualifier:
+		// Parameter: const HelloWorldPrinter & rhs
+		//************************************
+		HelloWorldPrinter& operator=(const HelloWorldPrinter& rhs)
+		{
+			for(int i = 0; i < hello_world_message_size; i++)
+				hello_world
+		}
 	};
 }

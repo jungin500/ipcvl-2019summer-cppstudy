@@ -36,7 +36,7 @@ namespace Template
 	/***********************************************************************/
 	namespace ex2
 	{
-		template<class T>		
+		template<class T>
 		T add(T a, T b)
 		{
 			return a + b;
@@ -49,7 +49,7 @@ namespace Template
 		}
 
 		void Run()
-		{			
+		{
 			cout << add(std::string("Hello"), std::string("World")) << endl;
 		}
 	}
@@ -77,7 +77,7 @@ namespace Template
 		{
 		private:
 			T size;
-		public:			
+		public:
 			Polygon(Shape<T> shape, T size) : Shape<T>(shape), size(size) {}
 			Polygon(T h, T w, T size) : Shape<T>(h, w), size(size) {}
 			T GetSize() { return size; }
@@ -102,7 +102,7 @@ namespace Template
 
 			Polygon<int> polygon2(10, 10, 100);
 			cout << "polygon2" << endl;
-			cout << polygon2.GetHeight() << " " << polygon2.GetWidth() << " " << polygon2.GetSize() <<  endl;
+			cout << polygon2.GetHeight() << " " << polygon2.GetWidth() << " " << polygon2.GetSize() << endl;
 			cout << endl;
 
 			Polygon<double> polygon3(shape2, 4.1905);
@@ -121,17 +121,40 @@ namespace Template
 	/*                          템플릿 클래스를 이용하여                   */
 	/* int과 double를 모두 처리할수 있는 계산기(더하기, 빼기)를 구현하시오 */
 	/***********************************************************************/
-	#include <type_traits>
+#include <type_traits>
 
 	namespace DIY
-	{		
+	{
+		template<typename T>
+		class Calculator
+		{
+		public:
+			T add(T a, T b)
+			{
+				return a + b;
+			}
+
+			T minus(T a, T b)
+			{
+				return a - b;
+			}
+		};
+
 		void Run()
 		{
 			int int_val1 = 10;
 			int int_val2 = 8;
 
 			int double_val1 = 3.14;
-			int double_val2 = 2.04;			
+			int double_val2 = 2.04;
+
+			Calculator<int> int_cal;
+			cout << int_val1 << " + " << int_val2 << " = " << int_cal.add(int_val1, int_val2) << endl;
+			cout << int_val1 << " - " << int_val2 << " = " << int_cal.minus(int_val1, int_val2) << endl;
+
+			Calculator<double> double_cal;
+			cout << double_val1 << " + " << double_val2 << " = " << double_cal.add(double_val1, double_val2) << endl;
+			cout << double_val1 << " - " << double_val2 << " = " << double_cal.minus(double_val1, double_val2) << endl;
 		}
 	}
 }
