@@ -302,7 +302,7 @@ namespace pointer
 		{
 			int val1;
 			int val2;
-			(void*)(*fp)(void*, void*, bool, bool);
+			void*(*fp)(void*, void*, bool, bool);
 		};
 
 		void* fp(void* a, void* b, bool integer, bool add)

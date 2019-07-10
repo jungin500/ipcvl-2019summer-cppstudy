@@ -1,8 +1,0 @@
-﻿  main.cpp
-  C:\Users\jungin500\Desktop\Projects\Study\ipcvl-2019summer-cppstudy\week1\Moder_c++\Moder_c++\01_Pointer_Ex.hpp: warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-C:\Users\jungin500\Desktop\Projects\Study\ipcvl-2019summer-cppstudy\week1\Moder_c++\Moder_c++\01_Pointer_Ex.hpp(92,27): warning C4267:  'return': 'size_t'에서 'const int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\jungin500\Desktop\Projects\Study\ipcvl-2019summer-cppstudy\week1\Moder_c++\Moder_c++\01_Pointer_Ex.hpp(92,27): warning C4267: C:\Users\jungin500\Desktop\Projects\Study\ipcvl-2019summer-cppstudy\week1\Moder_c++\Moder_c++\02_Template_Ex.hpp: warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-C:\Users\jungin500\Desktop\Projects\Study\ipcvl-2019summer-cppstudy\week1\Moder_c++\Moder_c++\02_Template_Ex.hpp(133,20): warning C4244:  '초기화 중': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\jungin500\Desktop\Projects\Study\ipcvl-2019summer-cppstudy\week1\Moder_c++\Moder_c++\02_Template_Ex.hpp(134,20): warning C4244:  '초기화 중': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\jungin500\Desktop\Projects\Study\ipcvl-2019summer-cppstudy\week1\Moder_c++\Moder_c++\main.cpp(7,1): warning C4326:  'main'의 반환 형식이 'int'이어야 하는데 'void'입니다.
-  Moder_c++.vcxproj -> C:\Users\jungin500\Desktop\Projects\Study\ipcvl-2019summer-cppstudy\week1\Moder_c++\x64\Debug\Moder_c++.exe
