@@ -310,7 +310,12 @@ namespace CONSTRUCTOR
 
 				list& operator=(std::initializer_list<double> values)
 				{
-					assert(size == values.size());
+					if (size != values.size())
+					{
+						size = values.size();
+						data.release();
+						data = std::unique_ptr<double[]>(new double[size]);
+					}
 					std::copy(std::begin(values), std::end(values), &data[0]);
 					return *this;
 				}

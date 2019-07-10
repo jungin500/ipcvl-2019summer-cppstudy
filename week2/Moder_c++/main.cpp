@@ -39,6 +39,7 @@ int main(const char args, const char* argv[])
 	*/
 
 	CONSTRUCTOR::COPY_CONSTRUCTOR::DIY::Run();
+
 	/*
 	CONSTRUCTOR::EXPLICIT::ex1::Run();
 	CONSTRUCTOR::EXPLICIT::ex2::Run();
@@ -50,9 +51,11 @@ int main(const char args, const char* argv[])
 	CONSTRUCTOR::INITIALIZER_LIST::ex1::Run();
 	CONSTRUCTOR::INITIALIZER_LIST::ex2::Run();
 	CONSTRUCTOR::INITIALIZER_LIST::ex3::Run();
+	*/
 
 	CONSTRUCTOR::INITIALIZER_LIST::DIY::Run();
 
+	/*
 	CONSTRUCTOR::MOVE::ex1::Run();
 	CONSTRUCTOR::MOVE::ex2::Run();
 	*/
